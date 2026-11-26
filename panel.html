@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Confirmaciones · F&amp;J</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Pinyon+Script&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--burgundy:#70283C;--malva:#925A78;--olivo:#68735B;--marfil:#F5F0E9;--tinta:#2A161D}
+  *{box-sizing:border-box;margin:0;padding:0;min-width:0}
+  body{background:var(--marfil) url(img/tex-beige.jpg) center/1000px;color:var(--tinta);font:500 17px/1.5 'Montserrat',system-ui,sans-serif;padding:28px max(4vw,14px) 60px}
+  header{display:flex;align-items:center;gap:16px;max-width:1100px;margin:0 auto 24px}
+  header img{width:64px}
+  h1{font:400 2.4rem 'Pinyon Script',cursive;color:var(--burgundy);line-height:1.1}
+  .sub{font-size:.8rem;color:var(--burgundy);letter-spacing:.1em;text-transform:uppercase}
+  main{max-width:1100px;margin:0 auto}
+  .acceso{background:#fff;padding:28px;max-width:420px;box-shadow:0 10px 30px -15px rgba(60,10,25,.35)}
+  label{display:block;font-weight:600;font-size:.85rem;color:var(--burgundy);margin-bottom:8px}
+  input{width:100%;font:500 16px 'Montserrat';padding:12px;border:1px solid #b9a0aa;min-height:46px}
+  button{font:600 .8rem 'Montserrat';letter-spacing:.14em;text-transform:uppercase;background:var(--burgundy);color:#fff;border:0;padding:14px 20px;min-height:46px;cursor:pointer}
+  button.sec{background:transparent;color:var(--burgundy);border:1px solid var(--burgundy)}
+  .fila-btn{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .error{color:#9b1c2e;margin-top:10px;min-height:1.4em}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:18px}
+  .kpi{background:#fff;padding:18px 20px;border-top:4px solid var(--burgundy)}
+  .kpi.no{border-color:#9a8a90}.kpi.pend{border-color:var(--olivo)}
+  .kpi b{display:block;font:600 2.4rem 'Cormorant Garamond',serif;line-height:1;color:var(--burgundy)}
+  .kpi span{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em}
+  .barra{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:12px}
+  .barra input{max-width:280px}
+  .tabla{background:#fff;overflow-x:auto}
+  table{width:100%;border-collapse:collapse;font-size:.92rem}
+  th{background:var(--burgundy);color:#fff;text-align:left;padding:10px 12px;font-weight:600;white-space:nowrap}
+  td{padding:10px 12px;border-bottom:1px solid #eadfe3;vertical-align:top}
+  td.num{text-align:right;font-variant-numeric:tabular-nums}
+  .si{color:#2f5d2f;font-weight:600}.nop{color:#9b1c2e;font-weight:600}
+  .vacio{padding:30px;text-align:center;color:#6b4b56}
+  .nota{font-size:.82rem;color:#5a4048;margin-top:10px}
+  @media(max-width:640px){
+    thead{display:none}
+    tr{display:grid;padding:10px 0;border-bottom:1px solid #eadfe3}
+    td{border:0;padding:3px 12px;display:flow-root;padding-left:9.5em}
+    td::before{content:attr(data-l);float:left;width:8.5em;margin-left:-9em;font-weight:600;color:var(--burgundy);font-size:.8rem}
+    td.num{text-align:left}
+  }
+</style>
+</head>
+<body>
+<header>
+  <img src="img/sello.webp" alt="">
+  <div><h1>Confirmaciones</h1><div class="sub">Fernanda &amp; Jorge · 26.02.2027</div></div>
+</header>
+<main>
+  <section class="acceso" id="acceso">
+    <label for="clave">Clave de acceso</label>
+    <input id="clave" type="password" autocomplete="current-password">
+    <div class="fila-btn"><button id="entrar" type="button">Ver confirmaciones</button></div>
+    <p class="error" id="err" role="alert"></p>
+  </section>
+
+  <section id="datos" hidden>
+    <div class="kpis">
+      <div class="kpi"><b id="kPersonas">0</b><span>Personas confirmadas</span></div>
+      <div class="kpi"><b id="kSi">0</b><span>Respuestas que asisten</span></div>
+      <div class="kpi no"><b id="kNo">0</b><span>No asistirán</span></div>
+      <div class="kpi pend"><b id="kTotal">0</b><span>Respuestas recibidas</span></div>
+    </div>
+    <div class="barra">
+      <input id="buscar" type="search" placeholder="Buscar nombre o familia" aria-label="Buscar">
+      <button id="actualizar" type="button">Actualizar</button>
+      <button id="csv" class="sec" type="button">Descargar Excel (CSV)</button>
+      <button id="salir" class="sec" type="button">Salir</button>
+    </div>
+    <div class="tabla"><table>
+      <thead><tr><th>Fecha</th><th>Nombre</th><th>¿Asiste?</th><th>Personas</th><th>Teléfono</th><th>Mensaje</th></tr></thead>
+      <tbody id="tbody"></tbody>
+    </table></div>
+    <p class="nota">Si alguien respondió más de una vez con el mismo nombre, los totales cuentan sólo su respuesta más reciente. La tabla muestra todas.</p>
+  </section>
+</main>
+
+<script>
+{
+  /* Pega aquí la MISMA URL de Apps Script que pusiste en index.html */
+  const URL_CONFIRMACIONES = "https://script.google.com/macros/s/AKfycbwNOkG5QDQuHF4H7Gy3p4uxSXhL2nE29GxpDW8Nr02GDqK9TLZt9jTPIiijMrE3C7yMhg/exec";
+
+  const $ = id => document.getElementById(id);
+  const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  let filas = [];
+  const guardar = k => { try { sessionStorage.setItem("clave", k); } catch(e){} };
+  const leer = () => { try { return sessionStorage.getItem("clave") || ""; } catch(e){ return ""; } };
+
+  async function cargar(clave){
+    $("err").textContent = "";
+    if (!URL_CONFIRMACIONES.startsWith("https://")) { $("err").textContent = "Falta pegar la URL de Apps Script en panel.html."; return; }
+    $("entrar").disabled = true; $("entrar").textContent = "Cargando…";
+    try {
+      const r = await fetch(`${URL_CONFIRMACIONES}?clave=${encodeURIComponent(clave)}&t=${Date.now()}`);
+      const d = await r.json();
+      if (d.error) throw new Error(d.error);
+      filas = (d.filas || []).sort((a,b) => String(b.fecha).localeCompare(String(a.fecha)));
+      guardar(clave);
+      $("acceso").hidden = true; $("datos").hidden = false;
+      pintar();
+    } catch (e) {
+      $("err").textContent = e.message === "Clave incorrecta" ? "Clave incorrecta." : "No se pudo conectar. Revisa la URL o intenta de nuevo.";
+    } finally { $("entrar").disabled = false; $("entrar").textContent = "Ver confirmaciones"; }
+  }
+
+  function pintar(){
+    // Totales: última respuesta por invitación/nombre
+    const ult = new Map();
+    for (const f of filas) { const k = (f.nombre || "").toString().trim().toLowerCase(); if (!ult.has(k)) ult.set(k, f); }
+    let si = 0, no = 0, personas = 0;
+    for (const f of ult.values()) { if (f.asistira === "Sí") { si++; personas += Number(f.personas) || 0; } else no++; }
+    $("kPersonas").textContent = personas; $("kSi").textContent = si; $("kNo").textContent = no; $("kTotal").textContent = filas.length;
+
+    const q = $("buscar").value.trim().toLowerCase();
+    const vis = filas.filter(f => !q || `${f.nombre}`.toLowerCase().includes(q));
+    const fmt = v => { const d = new Date(v); return isNaN(d) ? esc(v) : d.toLocaleString("es-MX", {day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"}); };
+    $("tbody").innerHTML = vis.length ? vis.map(f => `<tr>
+      <td data-l="Fecha">${fmt(f.fecha)}</td>
+      <td data-l="Nombre">${esc(f.nombre)}</td>
+      <td data-l="¿Asiste?" class="${f.asistira === "Sí" ? "si" : "nop"}">${esc(f.asistira)}</td>
+      <td data-l="Personas" class="num">${esc(f.personas)}</td>
+      <td data-l="Teléfono">${esc(f.telefono)}</td>
+      <td data-l="Mensaje">${esc(f.mensaje)}</td></tr>`).join("")
+      : `<tr><td colspan="6" class="vacio">${filas.length ? "Sin resultados para tu búsqueda." : "Aún no hay confirmaciones."}</td></tr>`;
+  }
+
+  function csv(){
+    const cab = ["Fecha","Nombre","¿Asiste?","Personas","Teléfono","Mensaje"];
+    const q = v => `"${String(v ?? "").replace(/"/g,'""')}"`;
+    const txt = "﻿" + [cab.map(q).join(","), ...filas.map(f => [f.fecha,f.nombre,f.asistira,f.personas,f.telefono,f.mensaje].map(q).join(","))].join("\n");
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([txt], {type:"text/csv;charset=utf-8"}));
+    a.download = "confirmaciones-boda.csv"; a.click();
+  }
+
+  $("entrar").addEventListener("click", () => cargar($("clave").value));
+  $("clave").addEventListener("keydown", e => { if (e.key === "Enter") cargar($("clave").value); });
+  $("actualizar").addEventListener("click", () => cargar(leer()));
+  $("buscar").addEventListener("input", pintar);
+  $("csv").addEventListener("click", csv);
+  $("salir").addEventListener("click", () => { try { sessionStorage.removeItem("clave"); } catch(e){} location.reload(); });
+  if (leer()) cargar(leer());
+}
+</script>
+</body>
+</html>

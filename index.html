@@ -7,7 +7,7 @@
 <meta name="description" content="Tenemos el honor de invitarte a nuestra boda. Viernes 26 de febrero de 2027.">
 <meta property="og:title" content="Maria Fernanda y Jorge Armando · Nuestra boda">
 <meta property="og:description" content="Viernes 26 de febrero de 2027 · Te esperamos">
-<meta property="og:image" content="img/foto3.jpg">
+<meta property="og:image" content="foto3.jpg">
 <meta name="theme-color" content="#70283C">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +29,7 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   html,body{overflow-x:clip}
-  body{background:var(--marfil) url(img/tex-beige.jpg) 0 0/1200px repeat;color:var(--tinta);font-family:var(--serif);font-weight:500;font-size:20px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body{background:var(--marfil) url(tex-beige.jpg) 0 0/1200px repeat;color:var(--tinta);font-family:var(--serif);font-weight:500;font-size:20px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   img{display:block;max-width:100%}
   a{color:inherit}
 
@@ -45,7 +45,7 @@
   /* ---------- APERTURA: SOBRE ---------- */
   body.cerrado{overflow:hidden}
   .apertura{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(18px,3.5vh,30px);padding:24px;
-    background:linear-gradient(rgba(255,252,247,.25),rgba(233,224,212,.35)),url(img/tex-blanco.jpg) center/cover;transition:opacity 1s ease, visibility 1s}
+    background:linear-gradient(rgba(255,252,247,.25),rgba(233,224,212,.35)),url(tex-blanco.jpg) center/cover;transition:opacity 1s ease, visibility 1s}
   .apertura.fuera{opacity:0;visibility:hidden}
   .ap-pre{font-family:var(--display);font-size:.74rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--burgundy)}
   .ap-nombres{font-family:var(--nombres);font-weight:400;font-size:clamp(2.4rem,9vw,3.4rem);letter-spacing:0;text-transform:none;color:var(--burgundy);text-align:center;line-height:1.1;margin-top:-10px}
@@ -53,9 +53,9 @@
   .ap-hint{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--tinta);animation:latido 2.4s ease-in-out infinite}
   @keyframes latido{0%,100%{opacity:.55}50%{opacity:1}}
   .env{position:relative;width:min(84vw,440px);aspect-ratio:7/5;perspective:1400px;margin-top:10vh}
-  .env-back,.env-front,.env-flap{background:#6E2539 url(img/tex-burgundy.jpg) center/cover}
+  .env-back,.env-front,.env-flap{background:#6E2539 url(tex-burgundy.jpg) center/cover}
   .env-back{position:absolute;inset:0;border-radius:4px;box-shadow:0 30px 50px -22px rgba(40,8,18,.6)}
-  .env-card{position:absolute;left:5%;right:5%;top:5%;height:90%;z-index:2;background:url(img/tarjeta.webp) 0 0/100% auto;box-shadow:0 2px 8px rgba(40,8,18,.25);
+  .env-card{position:absolute;left:5%;right:5%;top:5%;height:90%;z-index:2;background:url(tarjeta.webp) 0 0/100% auto;box-shadow:0 2px 8px rgba(40,8,18,.25);
     display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px;color:var(--burgundy);transition:transform 1.3s cubic-bezier(.22,.8,.3,1)}
   .ec-pre,.ec-fecha{font-family:var(--display);font-size:.62rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase}
   .ec-nom{font-family:var(--nombres);font-weight:400;font-size:clamp(1.5rem,6vw,2.1rem);letter-spacing:0;line-height:1.05}
@@ -82,9 +82,9 @@
 
   /* ---------- PORTADA (tarjeta letterpress) ---------- */
   .portada{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:clamp(90px,14vh,140px) 18px 110px;overflow:hidden;
-    background:linear-gradient(135deg,rgba(255,252,247,.35),rgba(233,224,212,.25)),url(img/tex-blanco.jpg) center/cover}
+    background:linear-gradient(135deg,rgba(255,252,247,.35),rgba(233,224,212,.25)),url(tex-blanco.jpg) center/cover}
   .escena{position:relative;width:min(92vw,500px,66vh);aspect-ratio:847/1182;container-type:inline-size}
-  .tarjeta-inv{position:absolute;inset:0;background:url(img/tarjeta.webp) center/100% 100% no-repeat;filter:drop-shadow(0 26px 30px rgba(60,15,30,.28));
+  .tarjeta-inv{position:absolute;inset:0;background:url(tarjeta.webp) center/100% 100% no-repeat;filter:drop-shadow(0 26px 30px rgba(60,15,30,.28));
     display:flex;align-items:center;padding:0 40% 0 9%}
   .txt{width:100%;display:flex;flex-direction:column;align-items:center;text-align:center;color:var(--burgundy)}
   .nombres-portada{position:relative;margin:0 0 9cqw;font-weight:400;display:flex;flex-direction:column;align-items:center;gap:1cqw}
@@ -127,8 +127,8 @@
   .par .py{font-size:1.25em;line-height:1;margin:-.05em 0 .45em;color:var(--ciruela)}
   .editorial .par .py{color:#E2C3D0}
   /* ---------- FOTO EDITORIAL ---------- */
-  .editorial{display:grid;grid-template-columns:1.1fr 1fr;min-height:92vh;background:var(--burgundy) url(img/tex-burgundy.jpg) center/cover;color:var(--marfil)}
-  .editorial .foto{background:url(img/foto3.jpg) center 78%/cover}
+  .editorial{display:grid;grid-template-columns:1.1fr 1fr;min-height:92vh;background:var(--burgundy) url(tex-burgundy.jpg) center/cover;color:var(--marfil)}
+  .editorial .foto{background:url(foto3.jpg) center 78%/cover}
   .editorial .texto{display:flex;flex-direction:column;justify-content:center;padding:64px 9%}
   .editorial blockquote{font-size:clamp(1.6rem,3.4vw,2.4rem);font-weight:400;font-style:italic;line-height:1.3;margin:22px 0 26px}
   .editorial .firma{font-family:var(--script);font-size:2.8rem;color:var(--ivory)}
@@ -233,7 +233,7 @@
   .m-gracias{text-align:center;padding:10px 0 20px}
   .m-gracias p{font-size:1.2rem;margin-top:12px}
   /* ---------- RSVP ---------- */
-  .rsvp{position:relative;min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--marfil);padding:110px 24px;background:linear-gradient(rgba(74,18,34,.78),rgba(60,14,30,.86)),url(img/foto6.jpg) center 62%/cover}
+  .rsvp{position:relative;min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--marfil);padding:110px 24px;background:linear-gradient(rgba(74,18,34,.78),rgba(60,14,30,.86)),url(foto6.jpg) center 62%/cover}
   .rsvp .titulo{color:var(--marfil)}
   .rsvp p{max-width:480px;margin:18px auto 0;font-size:1.15rem;font-style:italic}
   .rsvp .btn{border-color:var(--marfil);color:var(--marfil);margin-top:32px}
@@ -276,7 +276,7 @@
     <div class="env-front"></div>
     <div class="env-flap-wrap"><div class="env-flap"></div></div>
     <button class="env-sello" id="abrir" type="button" aria-label="Abrir invitación">
-      <img src="img/sello.webp" alt="">
+      <img src="sello.webp" alt="">
     </button>
   </div>
   <p class="ap-hint">Toca el sello para abrir</p>
@@ -293,7 +293,7 @@
       <rect width="700" height="500" rx="6" fill="url(#papel)"/>
       <path d="M0 500 L300 270 Q350 235 400 270 L700 500Z" fill="#6E2539"/>
       <path d="M0 0 L290 285 M700 0 L410 285" stroke="#4E1626" stroke-opacity=".5" stroke-width="2" fill="none"/>
-      <image href="img/tex-burgundy.jpg" width="700" height="500" preserveAspectRatio="xMidYMid slice" opacity=".7"/>
+      <image href="tex-burgundy.jpg" width="700" height="500" preserveAspectRatio="xMidYMid slice" opacity=".7"/>
       <path d="M0 0 H700 L395 300 Q350 340 305 300Z" fill="url(#solapa)" filter="url(#sombraSolapa)"/>
       
       <rect width="700" height="500" rx="6" fill="none" stroke="#9A4058" stroke-opacity=".35" stroke-width="2"/>
@@ -396,17 +396,17 @@
       <div class="eyebrow">Un poquito de nosotros</div>
     </div>
     <div class="grid">
-      <figure class="gi f rv"><button type="button" data-i="0" aria-label="Ver foto 1 en grande"><img src="img/g07.jpg" alt="Maria Fernanda y Jorge Armando" loading="lazy"></button></figure>
-      <figure class="gi v rv"><button type="button" data-i="1" aria-label="Ver foto 2 en grande"><img src="img/g01.jpg" alt="Maria Fernanda y Jorge Armando" loading="lazy"></button></figure>
-      <figure class="gi v rv"><button type="button" data-i="2" aria-label="Ver foto 3 en grande"><img src="img/g02.jpg" alt="Maria Fernanda y Jorge Armando" loading="lazy"></button></figure>
-      <figure class="gi v rv"><button type="button" data-i="3" aria-label="Ver foto 4 en grande"><img src="img/g03.jpg" alt="Maria Fernanda y Jorge Armando" loading="lazy"></button></figure>
-      <figure class="gi h rv"><button type="button" data-i="4" aria-label="Ver foto 5 en grande"><img src="img/g05.jpg" alt="Maria Fernanda y Jorge Armando" loading="lazy"></button></figure>
-      <figure class="gi v rv"><button type="button" data-i="5" aria-label="Ver foto 6 en grande"><img src="img/g08.jpg" alt="Maria Fernanda y Jorge Armando" loading="lazy"></button></figure>
-      <figure class="gi v rv"><button type="button" data-i="6" aria-label="Ver foto 7 en grande"><img src="img/g09.jpg" alt="Maria Fernanda y Jorge Armando" loading="lazy"></button></figure>
-      <figure class="gi v rv"><button type="button" data-i="7" aria-label="Ver foto 8 en grande"><img src="img/g04.jpg" alt="Maria Fernanda y Jorge Armando" loading="lazy"></button></figure>
-      <figure class="gi h rv"><button type="button" data-i="8" aria-label="Ver foto 9 en grande"><img src="img/g06.jpg" alt="Maria Fernanda y Jorge Armando" loading="lazy"></button></figure>
-      <figure class="gi v rv"><button type="button" data-i="9" aria-label="Ver foto 10 en grande"><img src="img/g10.jpg" alt="Maria Fernanda y Jorge Armando" loading="lazy"></button></figure>
-      <figure class="gi v rv"><button type="button" data-i="10" aria-label="Ver foto 11 en grande"><img src="img/g11.jpg" alt="Maria Fernanda y Jorge Armando" loading="lazy"></button></figure>
+      <figure class="gi f rv"><button type="button" data-i="0" aria-label="Ver foto 1 en grande"><img src="g07.jpg" alt="Maria Fernanda y Jorge Armando" loading="lazy"></button></figure>
+      <figure class="gi v rv"><button type="button" data-i="1" aria-label="Ver foto 2 en grande"><img src="g01.jpg" alt="Maria Fernanda y Jorge Armando" loading="lazy"></button></figure>
+      <figure class="gi v rv"><button type="button" data-i="2" aria-label="Ver foto 3 en grande"><img src="g02.jpg" alt="Maria Fernanda y Jorge Armando" loading="lazy"></button></figure>
+      <figure class="gi v rv"><button type="button" data-i="3" aria-label="Ver foto 4 en grande"><img src="g03.jpg" alt="Maria Fernanda y Jorge Armando" loading="lazy"></button></figure>
+      <figure class="gi h rv"><button type="button" data-i="4" aria-label="Ver foto 5 en grande"><img src="g05.jpg" alt="Maria Fernanda y Jorge Armando" loading="lazy"></button></figure>
+      <figure class="gi v rv"><button type="button" data-i="5" aria-label="Ver foto 6 en grande"><img src="g08.jpg" alt="Maria Fernanda y Jorge Armando" loading="lazy"></button></figure>
+      <figure class="gi v rv"><button type="button" data-i="6" aria-label="Ver foto 7 en grande"><img src="g09.jpg" alt="Maria Fernanda y Jorge Armando" loading="lazy"></button></figure>
+      <figure class="gi v rv"><button type="button" data-i="7" aria-label="Ver foto 8 en grande"><img src="g04.jpg" alt="Maria Fernanda y Jorge Armando" loading="lazy"></button></figure>
+      <figure class="gi h rv"><button type="button" data-i="8" aria-label="Ver foto 9 en grande"><img src="g06.jpg" alt="Maria Fernanda y Jorge Armando" loading="lazy"></button></figure>
+      <figure class="gi v rv"><button type="button" data-i="9" aria-label="Ver foto 10 en grande"><img src="g10.jpg" alt="Maria Fernanda y Jorge Armando" loading="lazy"></button></figure>
+      <figure class="gi v rv"><button type="button" data-i="10" aria-label="Ver foto 11 en grande"><img src="g11.jpg" alt="Maria Fernanda y Jorge Armando" loading="lazy"></button></figure>
     </div>
     <p class="pie-galeria rv">nuestra historia continúa…</p>
   </div>
@@ -456,7 +456,7 @@
   <div class="wrap rv">
     <div class="sobre-box">
       <svg class="sobre-regalo" viewBox="0 0 700 500" aria-hidden="true"><use href="#sobreS"/></svg>
-      <img class="sello-regalo" src="img/sello.webp" alt="">
+      <img class="sello-regalo" src="sello.webp" alt="">
     </div>
     <h2 class="titulo">Mesa de regalos</h2>
     <p>Su presencia es el regalo más valioso para nosotros. Si además desean tener un detalle con nosotros, el día del evento tendremos una caja para <strong>sobres</strong>.</p>
@@ -474,7 +474,7 @@
 </section>
 
 <footer>
-  <img class="sello-pie" src="img/sello.webp" alt="">
+  <img class="sello-pie" src="sello.webp" alt="">
   <div class="script"><span class="par"><span>Maria Fernanda</span><span class="py">y</span><span>Jorge Armando</span></span></div>
   <div class="eyebrow">26 · 02 · 2027</div>
 </footer>
@@ -484,7 +484,7 @@
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitulo" hidden>
   <div class="m-caja">
     <button class="m-cerrar" id="mCerrar" type="button" aria-label="Cerrar">×</button>
-    <img class="m-sello" src="img/sello.webp" alt="">
+    <img class="m-sello" src="sello.webp" alt="">
     <form id="formRsvp" novalidate>
       <h3 id="mTitulo" class="titulo">Confirma tu asistencia</h3>
       <p class="m-sub">Antes del <span class="limite"></span></p>

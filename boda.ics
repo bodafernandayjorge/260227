@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Fer y Jorge//Boda//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:boda-fer-jorge-20270226@bodafernandayjorge.github.io
+DTSTAMP:20261127T000000Z
+DTSTART:20270227T000000Z
+DTEND:20270227T063000Z
+SUMMARY:Boda de Maria Fernanda y Jorge Armando 💍
+LOCATION:Parroquia Nuestra Señora de la Soledad
+DESCRIPTION:6:00 p. m. Ceremonia religiosa · Parroquia Nuestra Señora de la Soledad\nhttps://maps.app.goo.gl/TBPtQTfjY72yyunJ9\n\n8:00 p. m. Ceremonia civil y celebración · Crown Eventos (Plaza Andenes)\nhttps://maps.app.goo.gl/6v8aR4DednJzw8348\n\nInvitación: https://bodafernandayjorge.github.io/260227/
+URL:https://bodafernandayjorge.github.io/260227/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mañana es la boda de Fer y Jorge
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+END:VCALENDAR
